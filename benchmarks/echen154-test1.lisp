@@ -1,19 +1,19 @@
-(define (create_list n)
+(define (create-list n)
     (if (= n 0)
-    () (pair n (create_list (sub1 n)))))
+    () (pair n (create-list (sub1 n)))))
 
-(define (sum_list lst)
-    (if (is_empty lst)
-    0 (+ (left lst) (sum_list (right lst)))))
+(define (sum-list lst)
+    (if (empty? lst)
+    0 (+ (left lst) (sum-list (right lst)))))
 
-(define (rec_arith n)
+(define (rec-arith n)
     (if (= n 0)
-    0 (+ 2 (rec_arith (sub1 n)))))
+    0 (+ 2 (rec-arith (sub1 n)))))
 
-(define (map_arith lst)
-    (if (is_empty lst)
-    () (pair (rec_arith (left lst)) (map_arith (right lst)))))
+(define (map-arith lst)
+    (if (empty? lst)
+    () (pair (rec-arith (left lst)) (map-arith (right lst)))))
 
-(define (f_calls n) (sum_list (map_arith (create_list n))))
+(define (f-calls n) (sum-list (map-arith (create-list n))))
 
-(print (f_calls 500))
+(print (f-calls 500))
